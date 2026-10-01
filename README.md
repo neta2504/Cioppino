@@ -4,7 +4,7 @@
 
 <h1 align="center">Cioppino</h1>
 
-<p align="center"><strong>The local-first activity monitor for AI agents.</strong></p>
+<p align="center"><strong>The activity monitor for AI agents.</strong></p>
 
 <p align="center">
   <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-1E7898.svg"></a>
@@ -13,7 +13,7 @@
   <img alt="Windows and macOS" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-F2A65A.svg">
 </p>
 
-Cioppino is a local browser dashboard that discovers AI agents on your
+Cioppino is a local acitivty monitor that discovers AI agents on your
 computer and brings their activity, access indicators, token usage, projects,
 downloads, and live process resource use into one view.
 
