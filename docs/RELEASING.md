@@ -8,6 +8,7 @@ repository preparation does not create or push a GitHub repository.
 - Node.js 24 and npm 11.
 - A clean `main` branch.
 - Branch protection and required CI checks configured.
+- CodeQL required when code scanning is available for the repository.
 
 ## Prepare
 
@@ -44,7 +45,7 @@ Enable:
 
 - Dependabot alerts and security updates;
 - secret scanning and push protection, when available;
-- branch protection requiring CI and CodeQL.
+- branch protection requiring CI and, when available, CodeQL.
 
 Keep the repository private until public release readiness is approved
 separately. Enable private vulnerability reporting when the repository becomes

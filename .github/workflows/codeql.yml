@@ -16,7 +16,22 @@ permissions:
   security-events: write
 
 jobs:
+  availability:
+    name: CodeQL availability
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report repository support
+        shell: bash
+        run: |
+          if [[ "${{ github.event.repository.private }}" == "true" ]]; then
+            echo "Code scanning is unavailable for this private repository."
+            echo "CodeQL analysis will start automatically if the repository becomes public."
+          else
+            echo "Code scanning is available."
+          fi
+
   analyze:
+    if: github.event.repository.private == false
     name: Analyze JavaScript and TypeScript
     runs-on: ubuntu-latest
     steps:
