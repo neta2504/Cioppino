@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/neta2504/cioppino/security/advisories/new
+    about: Report vulnerabilities privately. Do not open a public issue.
+  - name: Support guidance
+    url: https://github.com/neta2504/cioppino/blob/main/SUPPORT.md
+    about: Review supported platforms and safe diagnostic guidance.

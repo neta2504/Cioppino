@@ -1,0 +1,47 @@
+{
+  "name": "cioppino",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cioppino, the local-first activity monitor for AI agents",
+  "license": "MIT",
+  "author": "neta2504",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neta2504/cioppino.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neta2504/cioppino/issues"
+  },
+  "homepage": "https://github.com/neta2504/cioppino#readme",
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
+  },
+  "os": [
+    "win32",
+    "darwin"
+  ],
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev:backend": "npm --workspace backend run dev",
+    "dev:frontend": "npm --workspace frontend run dev",
+    "build:backend": "npm --workspace backend run build",
+    "build:frontend": "npm --workspace frontend run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test:backend": "npm --workspace backend run test",
+    "test:browser": "npm --workspace frontend run test",
+    "test:pricing": "npm --workspace backend run test:pricing && npm --workspace frontend run test:pricing",
+    "test:agents": "npm --workspace backend run test:agents && npm --workspace frontend run test:agents",
+    "test": "npm run build && npm run test:backend && npm run test:browser",
+    "package": "node scripts/package.mjs",
+    "verify:package": "node scripts/verify-package.mjs",
+    "start": "node scripts/start.mjs"
+  },
+  "devDependencies": {
+    "archiver": "^8.0.0"
+  }
+}

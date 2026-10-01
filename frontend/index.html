@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cioppino — AI Agent Monitor</title>
+    <!-- Preload the splash icon at high priority so the first paint frame
+         already has a decoded image rather than an empty 156×156 box. -->
+    <link rel="preload" as="image" href="/ocean/cioppino-icon.png" fetchpriority="high" />
+    <style>
+      /* Paint a background colour immediately so the first frame is never white. */
+      html, body { background: #0B2A3F; margin: 0; }
+
+      #cioppino-splash {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        background: linear-gradient(180deg, #0B2A3F 0%, #133752 60%, #1A4A6B 100%);
+        z-index: 9999;
+        font-family: Georgia, 'Times New Roman', serif;
+        color: #EAF4F8;
+        transition: opacity 320ms ease;
+      }
+      #cioppino-splash .pot {
+        position: relative;
+        width: 156px;
+        height: 156px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #cioppino-splash img {
+        width: 156px;
+        height: 156px;
+        animation: cioppino-bob 2.4s ease-in-out infinite;
+        filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));
+        border-radius: 22px;
+      }
+
+      #cioppino-splash .wordmark {
+        font-size: 2.4rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1;
+        color: #F7E9C9;
+      }
+      #cioppino-splash .tagline {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-style: italic;
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin-top: -0.5rem;
+      }
+      #cioppino-splash .steam {
+        position: absolute;
+        width: 9px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        filter: blur(4px);
+        animation: cioppino-steam 2.6s ease-in-out infinite;
+      }
+      #cioppino-splash .label {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 0.9rem;
+        font-style: italic;
+        letter-spacing: 0.02em;
+        opacity: 0.7;
+        animation: cioppino-pulse 1.6s ease-in-out infinite;
+        margin-top: 0.25rem;
+      }
+      #cioppino-splash.fade-out { opacity: 0; pointer-events: none; }
+      @keyframes cioppino-bob {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(-8px); }
+      }
+      @keyframes cioppino-steam {
+        0%   { transform: translateY(0)   scale(1);   opacity: 0; }
+        25%  { opacity: 0.9; }
+        100% { transform: translateY(-80px) scale(0.6); opacity: 0; }
+      }
+      @keyframes cioppino-pulse {
+        0%, 100% { opacity: 0.5; }
+        50%      { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cioppino-splash" aria-hidden="true">
+      <div class="pot">
+        <span class="steam" style="left: 44px; top: -12px; animation-delay: 0s;"></span>
+        <span class="steam" style="left: 72px; top: -18px; animation-delay: 0.6s;"></span>
+        <span class="steam" style="left: 100px; top: -12px; animation-delay: 1.2s;"></span>
+        <!-- Single Cioppino icon (ocean style is the only style). -->
+        <img src="/ocean/cioppino-icon.png" alt="Cioppino" fetchpriority="high" decoding="sync" />
+      </div>
+      <div class="wordmark">Cioppino</div>
+      <div class="tagline">The AI Agents Monitor</div>
+      <div class="label">Discovering what's simmering…loading...</div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

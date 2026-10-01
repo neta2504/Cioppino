@@ -1,0 +1,88 @@
+name: Draft release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows
+            os: windows-latest
+            extension: zip
+          - platform: macos
+            os: macos-latest
+            extension: tar.gz
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify tag matches package version
+        run: node -e "const expected='v'+require('./package.json').version;if(process.env.GITHUB_REF_NAME!==expected)throw new Error('Tag '+process.env.GITHUB_REF_NAME+' must equal '+expected)"
+      - name: Build
+        run: npm run build
+      - name: Run backend tests
+        run: npm run test:backend
+      - name: Install Playwright Chromium
+        run: npm exec --workspace frontend -- playwright install chromium
+      - name: Run browser tests
+        run: npm run test:browser
+      - name: Build release archives
+        run: npm run package
+      - name: Verify release archives
+        run: npm run verify:package
+      - name: Upload native-platform archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: release-${{ matrix.platform }}
+          path: release/Cioppino-${{ github.ref_name }}-${{ matrix.platform }}.${{ matrix.extension }}
+          if-no-files-found: error
+          retention-days: 7
+
+  draft:
+    name: Create draft GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download release archives
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: release-*
+          path: release
+          merge-multiple: true
+      - name: Generate checksums
+        shell: bash
+        run: |
+          cd release
+          sha256sum Cioppino-* > SHA256SUMS.txt
+      - name: Create or update draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if ! gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release create "${GITHUB_REF_NAME}" \
+              --draft \
+              --generate-notes \
+              --title "Cioppino ${GITHUB_REF_NAME}"
+          fi
+          gh release upload "${GITHUB_REF_NAME}" release/* --clobber

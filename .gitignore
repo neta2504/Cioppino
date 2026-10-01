@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build and package output
+dist/
+build/
+_dist-package/
+release/
+artifacts/
+*.tsbuildinfo
+
+# Test output
+test-results/
+playwright-report/
+coverage/
+
+# Runtime data
+backend/data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs and captured responses
+*.log
+auth.html
+
+# Local reference material
+Images/Downloads/
+Images/CioppinoDashboardOld.png
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
