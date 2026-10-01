@@ -13,7 +13,7 @@
   <img alt="Windows and macOS" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-F2A65A.svg">
 </p>
 
-Cioppino is a local acitivty monitor that discovers AI agents on your
+Cioppino is a local activity monitor that discovers AI agents on your
 computer and brings their activity, access indicators, token usage, projects,
 downloads, and live process resource use into one view.
 
