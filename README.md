@@ -9,6 +9,7 @@
 <p align="center">
   <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-1E7898.svg"></a>
   <a href="https://github.com/neta2504/cioppino/actions/workflows/ci.yml"><img alt="CI status" src="https://github.com/neta2504/cioppino/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/neta2504/cioppino/releases/latest"><img alt="Download latest release" src="https://img.shields.io/badge/download-latest_release-F2A65A.svg"></a>
   <img alt="Node.js 24 or newer" src="https://img.shields.io/badge/Node.js-24%2B-2FA388.svg">
   <img alt="Windows and macOS" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-F2A65A.svg">
 </p>
@@ -56,6 +57,9 @@ Capabilities can differ between agents.
 - npm 11 or newer
 
 ## Install from a release bundle
+
+Download the current packages and checksums from the
+[latest GitHub release](https://github.com/neta2504/cioppino/releases/latest).
 
 ### Windows
 
