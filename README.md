@@ -4,7 +4,7 @@
 
 <h1 align="center">Cioppino</h1>
 
-<p align="center"><strong>The activity monitor for AI agents.</strong></p>
+<p align="center"><strong>The activity monitor for your AI agents.</strong></p>
 
 <p align="center">
   <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-1E7898.svg"></a>
