@@ -37,6 +37,7 @@ API keys or integrations, and keeps its data on your machine.
   cost estimates from an editable local price table.
 - **Performance:** Monitors CPU, memory, process activity, latency, and available GPU information to help identify slowdowns, stalls, loops, and resource-heavy agents.
 - **Projects and downloads:** Connects agent activity to projects and surfaces package, dependency, and download activity.
+- **Kill Switch:** Includes an End Task option to kill supported running agent processes. Termination is user initiated
 
 ## Supported agents
 
