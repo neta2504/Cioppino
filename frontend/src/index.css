@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 :root {
   color-scheme: light;
@@ -72,7 +71,7 @@ body {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors;
   }
   .btn-primary {
-    @apply btn text-white;
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors text-white;
     background: #0B2A45;
     border-radius: 14px;
     padding: 0.6rem 1.1rem;
@@ -81,7 +80,7 @@ body {
   }
   .btn-primary:hover { background: #0E3556; }
   .btn-ghost {
-    @apply btn text-espresso/80 hover:bg-ciop-50 hover:text-ciop-600;
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors text-espresso/80 hover:bg-ciop-50 hover:text-ciop-600;
   }
   /* Sunset-over-the-bay header: deep ocean → seafoam → coral sunset */
   .gradient-header {
