@@ -28,6 +28,8 @@ API keys or integrations, and keeps its data on your machine.
   <img src="Images/CioppinoDashboard.png" alt="Cioppino dashboard" width="900">
 </p>
 
+⭐ **If you find Cioppino useful, give it a [star on GitHub](https://github.com/neta2504/Cioppino/stargazers)!** ⭐
+
 ## What Cioppino monitors
 
 - **Agents:** Discovers supported CLI and desktop AI tools, identifies which agents are running, and shows what each is currently working on
