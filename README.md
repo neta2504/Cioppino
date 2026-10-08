@@ -66,19 +66,17 @@ Download the current packages and checksums from the
 
 ### Windows
 
-1. Download `Cioppino-vX.Y.Z-windows.zip` and `SHA256SUMS.txt`.
-2. Verify the archive checksum.
-3. Extract the ZIP.
-4. Open the `Cioppino` folder and run `install-and-run.cmd`.
+1. Download `Cioppino-vX.Y.Z-windows.zip` 
+2. Extract the ZIP.
+3. Open the `Cioppino` folder and run `install-and-run.cmd`.
 
 ### macOS
 
-1. Download `Cioppino-vX.Y.Z-macos.tar.gz` and `SHA256SUMS.txt`.
-2. Verify the archive checksum with `shasum -a 256`.
-3. Extract the archive.
-4. Run `install-and-run.command`.
+1. Download `Cioppino-vX.Y.Z-macos.tar.gz` .
+2. Extract the archive.
+3. Run `install-and-run.command`.
 
-Release bundles are not code-signed, and macOS releases are not notarized. As a result, Windows or macOS may display a security warning when you first run the application.
+Release bundles are not code-signed, and macOS releases are not notarized. As a result, Windows or macOS may display a security warning when you first run the application. Download the `SHA256SUMS.txt` to verify the archive checksum.
 
 The first launch runs `npm ci --omit=dev` from the included lockfile, which
 contacts the npm registry to install runtime dependencies. Normal application
