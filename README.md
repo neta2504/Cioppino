@@ -18,9 +18,6 @@ Cioppino is a local activity monitor that discovers AI agents on your
 computer and brings their activity, access indicators, token usage, projects,
 downloads, and live process resource use into one view.
 
-It is designed to run on your machine: the server binds to `127.0.0.1`, uses a
-random authentication token for each launch, and stores its database locally.
-
 Cioppino runs locally, automatically discovers supported AI agents, requires no
 API keys or integrations, and keeps its data on your machine.
 
@@ -51,7 +48,8 @@ Cioppino currently has 33 agent definitions:
 | Desktop | Cursor, Windsurf, ChatGPT Desktop, Claude Desktop, Codex Desktop, Ollama Desktop, Poe Desktop, Antigravity IDE, Kiro IDE, Zed, goose Desktop, Warp, including Warp Agent |
 | IDE Extension | Continue, Cline, Cody, Gemini Code Assist, GitHub Copilot, Codex (IDE), Roo Code |
 
-Capabilities can differ between agents.
+Capabilities can differ between agents. Cioppino runs on your machine: the server binds to `127.0.0.1`, uses a
+random authentication token for each launch, and stores its database locally.
 
 ## Requirements
 
